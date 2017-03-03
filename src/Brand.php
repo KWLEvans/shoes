@@ -26,6 +26,25 @@
             return $this->id;
         }
 
+        function addStore($id)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$this->getId()}, {$id});");
+        }
+
+        function getStores()
+        {
+            $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands
+                            JOIN brands_stores ON (brands_stores.brand_id = brands.id)
+                            JOIN stores ON (stores.id = brands_stores.store_id)
+                            WHERE brands.id = {$this->getId()};");
+            if ($returned_stores) {
+                $stores = $returned_stores->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Store', ['name', 'id']);
+            } else {
+                $stores = [];
+            }
+            return $stores;
+        }
+
         function save()
         {
             $save = $GLOBALS['DB']->prepare("INSERT INTO brands (name) VALUES (:name);");
@@ -54,6 +73,7 @@
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM brands;");
+            $GLOBALS['DB']->exec("DELETE FROM brands_stores;");
         }
     }
 

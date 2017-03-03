@@ -5,6 +5,7 @@
     */
 
     require_once "src/Store.php";
+    require_once "src/Brand.php";
 
     $server = 'mysql:host=localhost:8889;dbname=shoes_test';
     $username = 'root';
@@ -17,6 +18,7 @@
         protected function tearDown()
         {
             Store::deleteAll();
+            Brand::deleteAll();
         }
 
         function test_save()
