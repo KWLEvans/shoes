@@ -1,4 +1,4 @@
-# __
+# _Shoe Fly_
 
 #### _A shoe store app to practice many-to-many relationships in php; March 3, 2017_
 
@@ -6,7 +6,7 @@
 
 ## Description
 
-__
+_The Shoe Fly app helps users find fly shoes. Users can search by brand to see all stores that carry it, or by store to see all the brands they carry._
 
 ## Setup/Installation Requirements
 
@@ -28,10 +28,12 @@ CREATE DATABASE shoes_test;
 USE shoes_test;
 CREATE TABLE stores (id serial PRIMARY KEY, name VARCHAR (255));
 CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR (255));
+CREATE TABLE brands_stores (id serial PRIMARY KEY, brand_id INT, store_id INT);
 CREATE DATABASE shoes;
 USE shoes;
 CREATE TABLE stores (id serial PRIMARY KEY, name VARCHAR (255));
 CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR (255));
+CREATE TABLE brands_stores (id serial PRIMARY KEY, brand_id INT, store_id INT);
 
 ## Known Bugs
 
