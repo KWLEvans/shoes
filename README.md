@@ -34,6 +34,13 @@ USE shoes;
 CREATE TABLE stores (id serial PRIMARY KEY, name VARCHAR (255));
 CREATE TABLE brands (id serial PRIMARY KEY, name VARCHAR (255));
 CREATE TABLE brands_stores (id serial PRIMARY KEY, brand_id INT, store_id INT);
+INSERT INTO stores (name) VALUES ('Shoe Thang');
+INSERT INTO stores (name) VALUES ('Shoe: There it is');
+INSERT INTO stores (name) VALUES ('Shoe Nuff');
+INSERT INTO stores (name) VALUES ('Shoe Me the Money');
+INSERT INTO stores (name) VALUES ('Kicks Tartar');
+INSERT INTO stores (name) VALUES ('Foot Gloves');
+
 
 ## Known Bugs
 
