@@ -26,6 +26,13 @@
             return $this->id;
         }
 
+        function update($new_name)
+        {
+            $this->setName($new_name);
+            $update = $GLOBALS['DB']->prepare("UPDATE stores SET name = :name WHERE id = :id;");
+            $update->execute([':name' => $this->getName(), ':id' => $this->getId()]);
+        }
+
         function save()
         {
             $save = $GLOBALS['DB']->prepare("INSERT INTO stores (name) VALUES (:name);");

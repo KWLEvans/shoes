@@ -69,5 +69,21 @@
             //Assert
             $this->assertEquals([], $result);
         }
+
+        function test_update()
+        {
+            //Assert
+            $name = "Shoe Thang";
+            $test_store = new Store($name);
+            $test_store->save();
+
+            //Act
+            $name2 = "You Shoes, You Lose";
+            $test_store->update($name2);
+            $result = Store::getAll();
+
+            //Assert
+            $this->assertEquals($name2, $result[0]->getName());
+        }
     }
 ?>
