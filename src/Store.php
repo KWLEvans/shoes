@@ -26,6 +26,25 @@
             return $this->id;
         }
 
+        function addBrand($id)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$id}, {$this->getId()});");
+        }
+
+        function getBrands()
+        {
+            $returned_brands = $GLOBALS['DB']->query("SELECT brands.* FROM stores
+                        JOIN brands_stores ON (brands_stores.store_id = stores.id)
+                        JOIN brands ON (brands.id = brands_stores.brand_id)
+                        WHERE stores.id = {$this->getId()};");
+            if ($returned_brands) {
+                $brands = $returned_brands->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Brand', ['name', 'id']);
+            } else {
+                $brands = [];
+            }
+            return $brands;
+        }
+
         function update($new_name)
         {
             $this->setName($new_name);

@@ -22,7 +22,7 @@
         function test_save()
         {
             //Assert
-            $name = "Shoe Thang";
+            $name = "Kicks Tartar";
             $test_brand = new Brand($name);
 
             //Act
@@ -36,11 +36,11 @@
         function test_getAll()
         {
             //Assert
-            $name = "Shoe Thang";
+            $name = "Kicks Tartar";
             $test_brand = new Brand($name);
             $test_brand->save();
 
-            $name = "Shoe: There it is";
+            $name = "Sports Shoes You Can't Do Sports In";
             $test_brand2 = new Brand($name);
             $test_brand2->save();
 
@@ -54,11 +54,11 @@
         function test_deleteAll()
         {
             //Assert
-            $name = "Shoe Thang";
+            $name = "Kicks Tartar";
             $test_brand = new Brand($name);
             $test_brand->save();
 
-            $name = "Shoe: There it is";
+            $name = "Sports Shoes You Can't Do Sports In";
             $test_brand2 = new Brand($name);
             $test_brand2->save();
 
@@ -73,11 +73,11 @@
         function test_find()
         {
             //Assert
-            $name = "Shoe Thang";
+            $name = "Kicks Tartar";
             $test_brand = new Brand($name);
             $test_brand->save();
 
-            $name = "Shoe: There it is";
+            $name = "Sports Shoes You Can't Do Sports In";
             $test_brand2 = new Brand($name);
             $test_brand2->save();
 

@@ -122,5 +122,48 @@
             //Assert
             $this->assertEquals($test_store, $result);
         }
+
+        function test_addBrand()
+        {
+            //Assert
+            $name = "Kicks Tartar";
+            $test_brand = new Brand($name);
+            $test_brand->save();
+
+            $name = "Shoe Thang";
+            $test_store = new Store($name);
+            $test_store->save();
+
+            //Act
+            $test_store->addBrand($test_brand->getId());
+            $result = $test_store->getBrands();
+
+            //Assert
+            $this->assertEquals([$test_brand], $result);
+        }
+
+        function test_getBrands()
+        {
+            //Assert
+            $name = "Kicks Tartar";
+            $test_brand = new Brand($name);
+            $test_brand->save();
+
+            $name = "Sports Shoes You Can't Do Sports In";
+            $test_brand2 = new Brand($name);
+            $test_brand2->save();
+
+            $name = "Shoe Thang";
+            $test_store = new Store($name);
+            $test_store->save();
+
+            //Act
+            $test_store->addBrand($test_brand->getId());
+            $test_store->addBrand($test_brand2->getId());
+            $result = $test_store->getBrands();
+
+            //Assert
+            $this->assertEquals([$test_brand, $test_brand2], $result);
+        }
     }
 ?>
