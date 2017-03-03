@@ -66,10 +66,16 @@
         return $app->redirect('/brand/'.$id);
     });
 
-    $app->get('/remove_store/{brand_id}/{store_id}', function($brand_id, $store_id) {
+    $app->get('/remove_store/{brand_id}/{store_id}', function($brand_id, $store_id) use ($app) {
         $brand = Brand::find($brand_id);
         $brand->removeStore($store_id);
         return $app->redirect('/brand/'.$brand_id);
+    });
+
+    $app->get('/remove_brand/{store_id}/{brand_id}', function($store_id, $brand_id) use ($app) {
+        $store = Store::find($store_id);
+        $store->removeBrand($brand_id);
+        return $app->redirect('/store/'.$store_id);
     });
 
     return $app

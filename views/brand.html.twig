@@ -13,9 +13,9 @@
                 {{ store.getName() }}
             </div>
             <div class="col col-2">
-                <form action="/remove_store/{{ brand.getId() }}/{{ store.getId() }}">
-                    <img src="/../img/delete.png" alt="delete symbol">
-                </form>
+                <a href="/remove_store/{{ brand.getId() }}/{{ store.getId() }}">
+                    <img class="deleter" src="/../img/delete.png" alt="delete symbol">
+                </a>
             </div>
         </div>
     </li>

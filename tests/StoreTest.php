@@ -167,5 +167,30 @@
             //Assert
             $this->assertEquals([$test_brand, $test_brand2], $result);
         }
+
+        function test_removeBrand()
+        {
+            //Assert
+            $name = "Kicks Tartar";
+            $test_brand = new Brand($name);
+            $test_brand->save();
+
+            $name = "Sports Shoes You Can't Do Sports In";
+            $test_brand2 = new Brand($name);
+            $test_brand2->save();
+
+            $name = "Shoe Thang";
+            $test_store = new Store($name);
+            $test_store->save();
+
+            //Act
+            $test_store->addBrand($test_brand->getId());
+            $test_store->addBrand($test_brand2->getId());
+            $test_store->removeBrand($test_brand->getId());
+            $result = $test_store->getBrands();
+
+            //Assert
+            $this->assertEquals([$test_brand2], $result);
+        }
     }
 ?>

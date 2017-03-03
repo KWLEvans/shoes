@@ -45,6 +45,11 @@
             return $brands;
         }
 
+        function removeBrand($id)
+        {
+            $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE store_id = {$this->getId()} AND brand_id = {$id};");
+        }
+
         function update($new_name)
         {
             $this->setName($new_name);
