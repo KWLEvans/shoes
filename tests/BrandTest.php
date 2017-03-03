@@ -132,5 +132,30 @@
             //Assert
             $this->assertEquals([$test_store, $test_store2], $result);
         }
+
+        function test_removeStore()
+        {
+            //Assert
+            $name = "Kicks Tartar";
+            $test_brand = new Brand($name);
+            $test_brand->save();
+
+            $name = "Shoe Thang";
+            $test_store = new Store($name);
+            $test_store->save();
+
+            $name = "Shoe: There it is";
+            $test_store2 = new Store($name);
+            $test_store2->save();
+
+            //Act
+            $test_brand->addStore($test_store->getId());
+            $test_brand->addStore($test_store2->getId());
+            $test_brand->removeStore($test_store->getId());
+            $result = $test_brand->getStores();
+
+            //Assert
+            $this->assertEquals([$test_store2], $result);
+        }
     }
 ?>

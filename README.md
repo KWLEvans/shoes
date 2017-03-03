@@ -40,6 +40,31 @@ INSERT INTO stores (name) VALUES ('Shoe Nuff');
 INSERT INTO stores (name) VALUES ('Shoe Me the Money');
 INSERT INTO stores (name) VALUES ('Kicks Tartar');
 INSERT INTO stores (name) VALUES ('Foot Gloves');
+INSERT INTO brands (name) VALUES ('Nake');
+INSERT INTO brands (name) VALUES ('Adeedrs');
+INSERT INTO brands (name) VALUES ('Reebuk');
+INSERT INTO brands (name) VALUES ('Vams');
+INSERT INTO brands (name) VALUES ('Sockony');
+INSERT INTO brands (name) VALUES ('Jardons');
+INSERT INTO brands_stores (brand_id, store_id) VALUES (1, 1);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (1, 3);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (1, 4);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (1, 6);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (2, 1);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (2, 3);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (2, 4);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (3, 1);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (3, 5);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (4, 1);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (4, 6);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (5, 1);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (5, 3);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (5, 4);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (5, 5);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (6, 1);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (6, 4);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (6, 5);
+INSERT INTO brands_stores (brand_id, store_id) VALUES (6, 6);
 
 
 ## Known Bugs

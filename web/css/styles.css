@@ -1,0 +1,9 @@
+img {
+    height: 20px;
+    width: 20px;
+}
+
+li {
+    width: 100%;
+    list-style: none;
+}

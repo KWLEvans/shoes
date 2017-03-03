@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ brand.getName() }}{% endblock %}
+
+{% block content%}
+<h3>{{ brand.getName() }}</h3>
+{% if stores is not empty %}
+<ul>
+    {% for store in stores %}
+    <li>
+        <div class="row">
+            <div class="col col-10">
+                {{ store.getName() }}
+            </div>
+            <div class="col col-2">
+                <form action="/remove_store/{{ brand.getId() }}/{{ store.getId() }}">
+                    <img src="/../img/delete.png" alt="delete symbol">
+                </form>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% if available_stores is not empty %}
+    <h4>Sell {{ brand.getName() }} to more stores</h4>
+    <form action='/brand/{{ brand.getId() }}' method="post" class="form-group">
+        <label for="store">Add a store</label>
+        <select id="store" name="store" class="form-control">
+            {% for store in available_stores %}
+                <option value="{{ store.getId() }}">{{ store.getName() }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn">Add Store</button>
+    </form>
+{% endif %}
+{% endblock %}

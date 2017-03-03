@@ -8,7 +8,7 @@
         <h3>Stores:</h3>
         <ul>
             {% for store in stores %}
-            <a href="/stores/{{ store.getId() }}"><li>{{ store.getName() }}</li></a>
+            <a href="/store/{{ store.getId() }}"><li>{{ store.getName() }}</li></a>
             {% endfor %}
         </ul>
     </div>
@@ -16,7 +16,7 @@
         <h3>Brands:</h3>
         <ul>
             {% for brand in brands %}
-            <a href="/brands/{{ brand.getId() }}"><li>{{ brand.getName() }}</li></a>
+            <a href="/brand/{{ brand.getId() }}"><li>{{ brand.getName() }}</li></a>
             {% endfor %}
         </ul>
     </div>

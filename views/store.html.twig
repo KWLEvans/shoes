@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ store.getName() }}{% endblock %}
+
+{% block content%}
+    <h3>{{ store.getName() }}</h3>
+    {% if brands is not empty %}
+    <ul>
+        {% for brand in brands %}
+        <li>{{ brand.getName() }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% if available_brands is not empty %}
+        <h4>Add more brands to {{ store.getName() }}</h4>
+        <form action='/store/{{ store.getId() }}' method="post" class="form-group">
+            <label for="brand">Add a brand</label>
+            <select id="brand" name="brand" class="form-control">
+                {% for brand in available_brands %}
+                    <option value="{{ brand.getId() }}">{{ brand.getName() }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn">Add Brand</button>
+        </form>
+    {% endif %}
+{% endblock %}

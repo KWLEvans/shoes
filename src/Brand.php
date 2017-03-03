@@ -45,6 +45,11 @@
             return $stores;
         }
 
+        function removeStore($id)
+        {
+            $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE brand_id = {$this->getId()} AND store_id = {$id};");
+        }
+
         function save()
         {
             $save = $GLOBALS['DB']->prepare("INSERT INTO brands (name) VALUES (:name);");
