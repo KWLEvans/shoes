@@ -80,6 +80,18 @@
             $GLOBALS['DB']->exec("DELETE FROM brands;");
             $GLOBALS['DB']->exec("DELETE FROM brands_stores;");
         }
+
+        static function noRepeat($new_name)
+        {
+            $brands = Brand::getAll();
+            $original = true;
+            foreach ($brands as $brand) {
+                if ($brand->getName() == $new_name) {
+                    $original = false;
+                }
+            }
+            return $original;
+        }
     }
 
 ?>

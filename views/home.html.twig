@@ -5,6 +5,11 @@
 {% block content %}
 <div class="row">
     <div class="col col-6">
+        <form class="add-new" action="/brand" method="post">
+            <label for="brand">Add new brand</label>
+            <input id="brand" name="brand" type="text" required>
+            <button type="submit" class="btn">Add new brand</button>
+        </form>
         <h3>Brands:</h3>
         {% for brand in brands %}
         <div class="row">
@@ -16,6 +21,11 @@
         <a href="/brands/delete_all" role="button" class="btn btn-danger">Delete All Brands</a>
     </div>
     <div class="col col-6">
+        <form class="add-new" action="/store" method="post">
+            <label for="store">Add new store</label>
+            <input id="store" name="store" type="text" required>
+            <button type="submit" class="btn">Add new store</button>
+        </form>
         <h3>Stores:</h3>
         {% for store in stores %}
         <div class="row">

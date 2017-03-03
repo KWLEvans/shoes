@@ -24,6 +24,15 @@
         return $app['twig']->render('home.html.twig', ['stores' => $stores, 'brands' => $brands]);
     });
 
+    $app->post('/store', function() use ($app) {
+        $name = ucwords($_POST['store']);
+        if (Store::noRepeat($name)) {
+            $store = new Store($name);
+            $store->save();
+        }
+        return $app->redirect('/');
+    });
+
     $app->get('/store/{id}', function($id) use ($app) {
         $store = Store::find($id);
         $brands = $store->getBrands();
@@ -64,14 +73,26 @@
 
     $app->post('/store/{id}/new_brand', function($id) use ($app) {
         $store = Store::find($id);
-        $brand = new Brand($_POST['new_brand']);
-        $brand->save();
-        $store->addBrand($brand->getId());
+        $name = ucwords($_POST['new_brand']);
+        if (Brand::noRepeat($name)) {
+            $brand = new Brand($name);
+            $brand->save();
+            $store->addBrand($brand->getId());
+        }
         return $app->redirect('/store/'.$id);
     });
 
     $app->get('stores/delete_all', function() use ($app) {
         Store::deleteAll();
+        return $app->redirect('/');
+    });
+
+    $app->post('/brand', function() use ($app) {
+        $name = ucwords($_POST['brand']);
+        if (Brand::noRepeat($name)) {
+            $brand = new Brand($name);
+            $brand->save();
+        }
         return $app->redirect('/');
     });
 
