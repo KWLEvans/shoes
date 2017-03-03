@@ -45,6 +45,13 @@
             $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getId()};");
         }
 
+        static function find($id)
+        {
+            $returned_store = $GLOBALS['DB']->query("SELECT * FROM stores WHERE id = {$id};");
+            $store = $returned_store->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Store', ['name', 'id']);
+            return $store[0];
+        }
+
         static function getAll()
         {
             $returned_stores = $GLOBALS['DB']->query("SELECT * FROM stores;");
