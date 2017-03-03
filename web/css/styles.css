@@ -8,3 +8,11 @@ li {
     width: 100%;
     list-style: none;
 }
+
+.jumbotron {
+    margin-top: 50px;
+}
+
+.btn-danger {
+    margin-top: 40px;
+}

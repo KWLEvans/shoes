@@ -16,9 +16,8 @@ _The Shoe Fly app helps users find fly shoes. Users can search by brand to see a
 * _Run `composer install` to install all dependencies_
 * _Start MAMP and go to your phpMyAdmin page_
 * _Click the import tab at the top of the page and import the .sql.zip files located in the main project directory_
-* _Ensure that database paths in app/app.php and tests files match your local database server_
-* _Initiate a php server using `php -S localhost:8000`_
-* _In your web browser, enter 'localhost:8000' in the URL bar_
+* _Ensure that the database port in app/app.php matches your default MySQL port_
+* _In your web browser, enter 'localhost:8888' or your default apache server port in the URL bar_
 
 _In the case of any issues importing the databses, SQL commands are included below to construct the databases required._
 

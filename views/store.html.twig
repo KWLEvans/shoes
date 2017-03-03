@@ -34,4 +34,9 @@
             <button type="submit" class="btn">Add Brand</button>
         </form>
     {% endif %}
+    <form action="/store/{{ store.getId() }}/new_brand" method="post">
+        <label for="new_brand">Add an entirely new brand</label>
+        <input id="new_brand" name="new_brand" type="text" required>
+        <button type="submit" class="btn">Add New Brand</button>
+    </form>
 {% endblock %}
